@@ -1,458 +1,827 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Robson Souza Portfolio</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/informatica.png" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="#page-top">Robson Souza</a>
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Sobre</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contato</a></li>
-                    </ul>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robson Souza | Professor de Desenvolvimento de Sistemas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f2ff;
+            --neon-purple: #b400ff;
+            --dark-bg: #0f0f1a;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        /* Estilos do cursor personalizado */
+       
+        .glass-card {
+            background: rgba(15, 15, 26, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+        }
+        
+        .neon-text-blue {
+            text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+        }
+        
+        .neon-text-purple {
+            text-shadow: 0 0 5px var(--neon-purple), 0 0 10px var(--neon-purple);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+        }
+        
+        .hover-grow {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-grow:hover {
+            transform: scale(1.03);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 242, 255, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(0, 242, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 242, 255, 0);
+            }
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            border-radius: 3px;
+        }
+        
+        input, textarea {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--neon-blue) !important;
+        }
+        
+        .tech-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-icon:hover {
+            transform: translateY(-5px);
+            filter: drop-shadow(0 0 5px var(--neon-blue));
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .portfolio-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .portfolio-card {
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 242, 255, 0.3);
+        }
+        
+        .project-image {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Profile Photo Section -->
+    <section class="py-12 px-6 bg-gradient-to-b from-dark-bg to-gray-900/50">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="flex justify-center mb-8">
+                <div class="relative">
+                    <div class="w-64 h-64 bg-purple-500 rounded-full opacity-20 blur-3xl absolute -top-10 -left-10"></div>
+                    <div class="w-64 h-64 bg-blue-500 rounded-full opacity-20 blur-3xl absolute -bottom-10 -right-10"></div>
+                    <div class="glass-card p-2 rounded-full">
+                        <img src="https://avatars.githubusercontent.com/u/156427878?v=4" 
+                             alt="Robson Souza" 
+                             class="w-48 h-48 object-cover rounded-full border-4 border-blue-400/30">
+                    </div>
                 </div>
             </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/eu.png" alt="..." />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Robson Souza</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-joystick" viewBox="0 0 16 16">
-                        <path d="M10 2a2 2 0 0 1-1.5 1.937v5.087c.863.083 1.5.377 1.5.726 0 .414-.895.75-2 .75s-2-.336-2-.75c0-.35.637-.643 1.5-.726V3.937A2 2 0 1 1 10 2"/>
-                        <path d="M0 9.665v1.717a1 1 0 0 0 .553.894l6.553 3.277a2 2 0 0 0 1.788 0l6.553-3.277a1 1 0 0 0 .553-.894V9.665c0-.1-.06-.19-.152-.23L9.5 6.715v.993l5.227 2.178a.125.125 0 0 1 .001.23l-5.94 2.546a2 2 0 0 1-1.576 0l-5.94-2.546a.125.125 0 0 1 .001-.23L6.5 7.708l-.013-.988L.152 9.435a.25.25 0 0 0-.152.23"/>
-                      </svg>
-                    <!-- <div class="divider-custom-icon"><i class="bi bi-joystick"></i></div> -->
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Professor - Developer - Designer Grágico</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                Robson <span class="neon-text-blue">Souza</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-6">
+                Professor de Desenvolvimento de Sistemas no SENAI Jaguariúna
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-blue-400/20 flex items-center justify-center text-blue-400 hover:bg-blue-400/40 transition">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-purple-400/20 flex items-center justify-center text-purple-400 hover:bg-purple-400/40 transition">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-blue-400/20 flex items-center justify-center text-blue-400 hover:bg-blue-400/40 transition">
+                    <i class="fab fa-youtube"></i>
+                </a>
             </div>
-        </header>
-        <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="portfolio">
-            <div class="container">
-                <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
+        </div>
+    </section>
+
+    <!-- Navbar -->
+    <nav class="glass-card sticky top-0 w-full z-50 py-4 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold neon-text-blue">Robson<span class="neon-text-purple">Souza</span></a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-purple-400 transition">Sobre</a>
+                <a href="#portfolio" class="hover:text-blue-400 transition">Portfólios</a>
+                <a href="#projects" class="hover:text-purple-400 transition">Projetos</a>
+                <a href="#contact" class="hover:text-blue-400 transition">Contato</a>
+            </div>
+            <button class="md:hidden text-xl" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card mt-4 py-4 px-6 rounded-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="#about" class="hover:text-purple-400 transition">Sobre</a>
+                <a href="#portfolio" class="hover:text-blue-400 transition">Portfólios</a>
+                <a href="#projects" class="hover:text-purple-400 transition">Projetos</a>
+                <a href="#contact" class="hover:text-blue-400 transition">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 px-6 bg-gradient-to-b from-dark-bg to-gray-900/50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 section-title">Sobre Mim</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="glass-card p-8 rounded-xl hover-grow">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-400">Minha Jornada</h3>
+                    <p class="mb-4 text-gray-300">
+                        Com mais de 5 anos de experiência no ensino de tecnologia, dedico minha carreira a formar 
+                        profissionais capacitados para o mercado de trabalho em Desenvolvimento de Sistemas.
+                    </p>
+                    <p class="mb-4 text-gray-300">
+                        Atuo como professor no SENAI Jaguariúna, onde ministro disciplinas práticas e teóricas 
+                        para alunos do curso técnico e de qualificação profissional.
+                    </p>
+                    <p class="text-gray-300">
+                        Minha abordagem de ensino combina fundamentos sólidos com aplicações práticas, 
+                        preparando os alunos para os desafios reais do mercado de TI.
+                    </p>
                 </div>
-                <!-- Portfolio Grid Items-->
-                <div class="row justify-content-center">
-                    <!-- Portfolio Item 1-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-purple-400">Tecnologias que Ensino</h3>
+                    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6">
+                        <div class="tech-icon flex flex-col items-center">
+                            <i class="fab fa-html5 text-4xl text-orange-500 mb-2"></i>
+                            <span class="text-sm">HTML5</span>
+                        </div>
+                        <div class="tech-icon flex flex-col items-center">
+                            <i class="fab fa-css3-alt text-4xl text-blue-500 mb-2"></i>
+                            <span class="text-sm">CSS3</span>
+                        </div>
+                        <div class="tech-icon flex flex-col items-center">
+                            <i class="fab fa-js text-4xl text-yellow-400 mb-2"></i>
+                            <span class="text-sm">JavaScript</span>
+                        </div>
+                        <div class="tech-icon flex flex-col items-center">
+                            <i class="fab fa-react text-4xl text-blue-300 mb-2"></i>
+                            <span class="text-sm">React</span>
+                        </div>
+                        <div class="tech-icon flex flex-col items-center">
+                            <i class="fas fa-code text-4xl text-purple-400 mb-2"></i>
+                            <span class="text-sm">C/C++</span>
+                        </div>
+                        <div class="tech-icon flex flex-col items-center">
+                            <i class="fas fa-microchip text-4xl text-green-400 mb-2"></i>
+                            <span class="text-sm">Arduino</span>
+                        </div>
+                        <div class="tech-icon flex flex-col items-center">
+                            <i class="fas fa-database text-4xl text-blue-200 mb-2"></i>
+                            <span class="text-sm">SQL</span>
+                        </div>
+                        <div class="tech-icon flex flex-col items-center">
+                            <i class="fab fa-git-alt text-4xl text-orange-600 mb-2"></i>
+                            <span class="text-sm">Git</span>
                         </div>
                     </div>
-                    <!-- Portfolio Item 2-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cake.png" alt="..." />
+                    
+                    <div class="glass-card p-6 mt-8 rounded-xl hover-grow">
+                        <h4 class="text-xl font-bold mb-3 text-blue-400">Formação Acadêmica</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-graduation-cap text-purple-400 mt-1 mr-3"></i>
+                                <span>Mestrado em Engenharia de Software - UNICAMP</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-graduation-cap text-purple-400 mt-1 mr-3"></i>
+                                <span>Bacharelado em Ciência da Computação - USP</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-certificate text-purple-400 mt-1 mr-3"></i>
+                                <span>Certificação AWS Cloud Practitioner</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4 section-title">Portfólios dos Alunos</h2>
+            <p class="text-xl text-gray-400 mb-12">Projetos desenvolvidos por meus alunos</p>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <!-- Student Portfolio Cards (60 cards) -->
+                <!-- Each card has a random tech icon -->
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-html5 portfolio-icon text-orange-500"></i>
+                    <span class="text-sm">João Silva</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-css3-alt portfolio-icon text-blue-500"></i>
+                    <span class="text-sm">Maria Souza</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-js portfolio-icon text-yellow-400"></i>
+                    <span class="text-sm">Carlos Lima</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-react portfolio-icon text-blue-300"></i>
+                    <span class="text-sm">Ana Costa</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-code portfolio-icon text-purple-400"></i>
+                    <span class="text-sm">Pedro Santos</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-microchip portfolio-icon text-green-400"></i>
+                    <span class="text-sm">Luiza Almeida</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-database portfolio-icon text-blue-200"></i>
+                    <span class="text-sm">Rafael Pereira</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-git-alt portfolio-icon text-orange-600"></i>
+                    <span class="text-sm">Fernanda Oliveira</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-node-js portfolio-icon text-green-500"></i>
+                    <span class="text-sm">Lucas Mendes</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-vuejs portfolio-icon text-green-300"></i>
+                    <span class="text-sm">Juliana Rocha</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-angular portfolio-icon text-red-500"></i>
+                    <span class="text-sm">Marcos Vinicius</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-terminal portfolio-icon text-gray-400"></i>
+                    <span class="text-sm">Patricia Lima</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-python portfolio-icon text-blue-400"></i>
+                    <span class="text-sm">Ricardo Alves</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-php portfolio-icon text-purple-500"></i>
+                    <span class="text-sm">Camila Silva</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-java portfolio-icon text-red-400"></i>
+                    <span class="text-sm">Gustavo Henrique</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-android portfolio-icon text-green-500"></i>
+                    <span class="text-sm">Amanda Costa</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-apple portfolio-icon text-gray-300"></i>
+                    <span class="text-sm">Roberto Carlos</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-aws portfolio-icon text-orange-400"></i>
+                    <span class="text-sm">Carolina Dias</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-cloud portfolio-icon text-blue-200"></i>
+                    <span class="text-sm">Felipe Martins</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-server portfolio-icon text-gray-400"></i>
+                    <span class="text-sm">Vanessa Souza</span>
+                </div>
+                <!-- Additional cards to reach 60 -->
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-html5 portfolio-icon text-orange-500"></i>
+                    <span class="text-sm">Aluno 21</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-css3-alt portfolio-icon text-blue-500"></i>
+                    <span class="text-sm">Aluno 22</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-js portfolio-icon text-yellow-400"></i>
+                    <span class="text-sm">Aluno 23</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-react portfolio-icon text-blue-300"></i>
+                    <span class="text-sm">Aluno 24</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-code portfolio-icon text-purple-400"></i>
+                    <span class="text-sm">Aluno 25</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-microchip portfolio-icon text-green-400"></i>
+                    <span class="text-sm">Aluno 26</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-database portfolio-icon text-blue-200"></i>
+                    <span class="text-sm">Aluno 27</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-git-alt portfolio-icon text-orange-600"></i>
+                    <span class="text-sm">Aluno 28</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-node-js portfolio-icon text-green-500"></i>
+                    <span class="text-sm">Aluno 29</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-vuejs portfolio-icon text-green-300"></i>
+                    <span class="text-sm">Aluno 30</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-angular portfolio-icon text-red-500"></i>
+                    <span class="text-sm">Aluno 31</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-terminal portfolio-icon text-gray-400"></i>
+                    <span class="text-sm">Aluno 32</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-python portfolio-icon text-blue-400"></i>
+                    <span class="text-sm">Aluno 33</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-php portfolio-icon text-purple-500"></i>
+                    <span class="text-sm">Aluno 34</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-java portfolio-icon text-red-400"></i>
+                    <span class="text-sm">Aluno 35</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-android portfolio-icon text-green-500"></i>
+                    <span class="text-sm">Aluno 36</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-apple portfolio-icon text-gray-300"></i>
+                    <span class="text-sm">Aluno 37</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-aws portfolio-icon text-orange-400"></i>
+                    <span class="text-sm">Aluno 38</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-cloud portfolio-icon text-blue-200"></i>
+                    <span class="text-sm">Aluno 39</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-server portfolio-icon text-gray-400"></i>
+                    <span class="text-sm">Aluno 40</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-html5 portfolio-icon text-orange-500"></i>
+                    <span class="text-sm">Aluno 41</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-css3-alt portfolio-icon text-blue-500"></i>
+                    <span class="text-sm">Aluno 42</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-js portfolio-icon text-yellow-400"></i>
+                    <span class="text-sm">Aluno 43</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-react portfolio-icon text-blue-300"></i>
+                    <span class="text-sm">Aluno 44</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-code portfolio-icon text-purple-400"></i>
+                    <span class="text-sm">Aluno 45</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-microchip portfolio-icon text-green-400"></i>
+                    <span class="text-sm">Aluno 46</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-database portfolio-icon text-blue-200"></i>
+                    <span class="text-sm">Aluno 47</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-git-alt portfolio-icon text-orange-600"></i>
+                    <span class="text-sm">Aluno 48</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-node-js portfolio-icon text-green-500"></i>
+                    <span class="text-sm">Aluno 49</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-vuejs portfolio-icon text-green-300"></i>
+                    <span class="text-sm">Aluno 50</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-angular portfolio-icon text-red-500"></i>
+                    <span class="text-sm">Aluno 51</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-terminal portfolio-icon text-gray-400"></i>
+                    <span class="text-sm">Aluno 52</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-python portfolio-icon text-blue-400"></i>
+                    <span class="text-sm">Aluno 53</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-php portfolio-icon text-purple-500"></i>
+                    <span class="text-sm">Aluno 54</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-java portfolio-icon text-red-400"></i>
+                    <span class="text-sm">Aluno 55</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-android portfolio-icon text-green-500"></i>
+                    <span class="text-sm">Aluno 56</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-apple portfolio-icon text-gray-300"></i>
+                    <span class="text-sm">Aluno 57</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fab fa-aws portfolio-icon text-orange-400"></i>
+                    <span class="text-sm">Aluno 58</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-cloud portfolio-icon text-blue-200"></i>
+                    <span class="text-sm">Aluno 59</span>
+                </div>
+                <div class="glass-card portfolio-card rounded-lg hover-grow">
+                    <i class="fas fa-server portfolio-icon text-gray-400"></i>
+                    <span class="text-sm">Aluno 60</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section (replacing Testimonials) -->
+    <section id="projects" class="py-16 px-6 bg-gradient-to-b from-gray-900/50 to-dark-bg">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4 section-title">Meus Projetos</h2>
+            <p class="text-xl text-gray-400 mb-12">Alguns dos projetos que desenvolvi ou participei</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <a href="#" class="project-card glass-card rounded-xl overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Dashboard de Análise de Dados" 
+                         class="project-image w-full">
+                    <div class="project-overlay">
+                        <h3 class="text-xl font-bold text-white">Dashboard de Análise de Dados</h3>
+                        <p class="text-gray-300 text-sm">React, Chart.js, Node.js</p>
+                        <div class="mt-2">
+                            <span class="inline-block px-2 py-1 bg-blue-400/20 text-blue-400 rounded-full text-xs">Ver Projeto</span>
                         </div>
                     </div>
-                    <!-- Portfolio Item 3-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/circus.png" alt="..." />
+                </a>
+                
+                <!-- Project 2 -->
+                <a href="#" class="project-card glass-card rounded-xl overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Aplicativo de Controle Financeiro" 
+                         class="project-image w-full">
+                    <div class="project-overlay">
+                        <h3 class="text-xl font-bold text-white">Aplicativo de Controle Financeiro</h3>
+                        <p class="text-gray-300 text-sm">React Native, Firebase</p>
+                        <div class="mt-2">
+                            <span class="inline-block px-2 py-1 bg-purple-400/20 text-purple-400 rounded-full text-xs">Ver Projeto</span>
                         </div>
                     </div>
-                    <!-- Portfolio Item 4-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/game.png" alt="..." />
+                </a>
+                
+                <!-- Project 3 -->
+                <a href="#" class="project-card glass-card rounded-xl overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Sistema IoT para Monitoramento" 
+                         class="project-image w-full">
+                    <div class="project-overlay">
+                        <h3 class="text-xl font-bold text-white">Sistema IoT para Monitoramento</h3>
+                        <p class="text-gray-300 text-sm">Arduino, Node.js, MongoDB</p>
+                        <div class="mt-2">
+                            <span class="inline-block px-2 py-1 bg-blue-400/20 text-blue-400 rounded-full text-xs">Ver Projeto</span>
                         </div>
                     </div>
-                    <!-- Portfolio Item 5-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/safe.png" alt="..." />
+                </a>
+                
+                <!-- Project 4 -->
+                <a href="#" class="project-card glass-card rounded-xl overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Plataforma de Ensino Online" 
+                         class="project-image w-full">
+                    <div class="project-overlay">
+                        <h3 class="text-xl font-bold text-white">Plataforma de Ensino Online</h3>
+                        <p class="text-gray-300 text-sm">React, Node.js, PostgreSQL</p>
+                        <div class="mt-2">
+                            <span class="inline-block px-2 py-1 bg-purple-400/20 text-purple-400 rounded-full text-xs">Ver Projeto</span>
                         </div>
                     </div>
-                    <!-- Portfolio Item 6-->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/submarine.png" alt="..." />
+                </a>
+                
+                <!-- Project 5 -->
+                <a href="#" class="project-card glass-card rounded-xl overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Sistema de Automação Residencial" 
+                         class="project-image w-full">
+                    <div class="project-overlay">
+                        <h3 class="text-xl font-bold text-white">Sistema de Automação Residencial</h3>
+                        <p class="text-gray-300 text-sm">Arduino, Raspberry Pi, Python</p>
+                        <div class="mt-2">
+                            <span class="inline-block px-2 py-1 bg-blue-400/20 text-blue-400 rounded-full text-xs">Ver Projeto</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Project 6 -->
+                <a href="#" class="project-card glass-card rounded-xl overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Aplicativo de Gestão de Tarefas" 
+                         class="project-image w-full">
+                    <div class="project-overlay">
+                        <h3 class="text-xl font-bold text-white">Aplicativo de Gestão de Tarefas</h3>
+                        <p class="text-gray-300 text-sm">Flutter, Firebase</p>
+                        <div class="mt-2">
+                            <span class="inline-block px-2 py-1 bg-purple-400/20 text-purple-400 rounded-full text-xs">Ver Projeto</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4 section-title">Entre em Contato</h2>
+            <p class="text-xl text-gray-400 mb-12">Agende uma aula ou tire suas dúvidas</p>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-card p-8 rounded-xl hover-grow">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-400">Envie uma mensagem</h3>
+                    <form>
+                        <div class="mb-6">
+                            <label for="name" class="block mb-2 text-gray-300">Seu nome</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg text-white focus:ring-2 focus:ring-blue-400">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block mb-2 text-gray-300">Seu e-mail</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg text-white focus:ring-2 focus:ring-blue-400">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block mb-2 text-gray-300">Sua mensagem</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg text-white focus:ring-2 focus:ring-blue-400"></textarea>
+                        </div>
+                        <button type="submit" class="gradient-bg text-white font-medium py-3 px-8 rounded-full hover-grow w-full md:w-auto">
+                            Enviar Mensagem <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <div>
+                    <div class="glass-card p-8 rounded-xl mb-8 hover-grow">
+                        <h3 class="text-2xl font-bold mb-4 text-purple-400">Informações de Contato</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-envelope text-blue-400 mt-1 mr-4 text-xl"></i>
+                                <span>contato@robsonsouza.com</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-phone-alt text-purple-400 mt-1 mr-4 text-xl"></i>
+                                <span>(19) 99999-9999</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-blue-400 mt-1 mr-4 text-xl"></i>
+                                <span>SENAI Jaguariúna - Av. Presidente Vargas, 1000</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="glass-card p-8 rounded-xl hover-grow">
+                        <h3 class="text-2xl font-bold mb-6 text-purple-400">Redes Sociais</h3>
+                        <div class="flex space-x-6">
+                            <a href="#" class="w-12 h-12 rounded-full bg-blue-400/20 flex items-center justify-center text-blue-400 hover:bg-blue-400/40 transition">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-full bg-purple-400/20 flex items-center justify-center text-purple-400 hover:bg-purple-400/40 transition">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-full bg-blue-400/20 flex items-center justify-center text-blue-400 hover:bg-blue-400/40 transition">
+                                <i class="fab fa-youtube text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-full bg-purple-400/20 flex items-center justify-center text-purple-400 hover:bg-purple-400/40 transition">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- About Section-->
-        <section class="page-section bg-primary text-white mb-0" id="about">
-            <div class="container">
-                <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">Sobre</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold neon-text-blue">Robson<span class="neon-text-purple">Souza</span></a>
+                    <p class="text-gray-400 mt-2">Transformando ideias em código desde 2010</p>
                 </div>
-                <!-- About Section Content-->
-                <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">Professor do SENAI para os Cursos de Desenvolvimento de Sistemas e Power BI, alem de atuar nas áreas de Designer Gráfico e Suporte, estando no Mercado de TI desde 2011, formado técnico em informática pelo Centro Paula Souza e Ciêntista da Computação pela UNIP</p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead"><img class="img-fluid" src="assets/img/computer.gif" alt="..." /></p></div>
-                </div>
-                <!-- About Section Button-->
-                <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="https://github.com/robsonbsouzaa">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                          </svg>
-                         Meu Github!
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i class="fab fa-youtube text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
+                        <i class="fab fa-instagram text-xl"></i>
                     </a>
                 </div>
             </div>
-        </section>
-        <!-- Contact Section-->
-        <section class="page-section" id="contact">
-            <div class="container">
-                <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Contact Section Form-->
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-xl-7">
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Name input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="name">Nome Completo</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">o nome é necessário.</div>
-                            </div>
-                            <!-- Email address input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <label for="email">Email</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">um email é necessário.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email incorreto.</div>
-                            </div>
-                            <!-- Phone number input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Telefone</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">Um telefone é necessário.</div>
-                            </div>
-                            <!-- Message input-->
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">Mensagem</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A mensagem é requerida.</div>
-                            </div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                </div>
-                            </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            <!-- Submit Button-->
-                            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Footer-->
-        <footer class="footer text-center">
-            <div class="container">
-                <div class="row">
-                    <!-- Footer Location-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Aulas</h4>
-                        <p class="lead mb-0">
-                           SENAI Jaguariúna
-                    </div>
-                    <!-- Footer Social Icons-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Veja me tambem</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
-                    </div>
-                    <!-- Footer About Text-->
-                    <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">Sobre</h4>
-                        <p class="lead mb-0">
-                            Cocriar!
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Copyright Section-->
-        <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy;2024</small></div>
-        </div>
-        <!-- Portfolio Modals-->
-        <!-- Portfolio Modal 1-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Log Cabin</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cabin.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2023 Robson Souza. Todos os direitos reservados.</p>
+                <p class="mt-2">Professor de Desenvolvimento de Sistemas no SENAI Jaguariúna</p>
             </div>
         </div>
-        <!-- Portfolio Modal 2-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 3-->
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/circus.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 4-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/game.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 5-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/safe.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 6-->
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
-    </body>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Add fade-in animation when elements come into view
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(element => {
+            fadeObserver.observe(element);
+        });
+
+        // Custom cursor with Tux (Linux penguin)
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        
+        // Change cursor style when hovering clickable elements
+        const clickableElements = document.querySelectorAll('a, button, input, textarea, .hover-grow, .tech-icon, .portfolio-card, .project-card');
+        
+        clickableElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(1.2)';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
 </html>
